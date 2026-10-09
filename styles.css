@@ -1,0 +1,163 @@
+:root {
+  --ink: #1d2b3a;
+  --muted: #5d6b7a;
+  --paper: #f7f9fb;
+  --card: #ffffff;
+  --line: #d9e1e8;
+  --accent: #a30d0dbd;
+  --accent-dark: #084f54;
+  --highlight: #f2b134;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Sarabun", "Noto Sans Thai", Tahoma, sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+a { color: var(--accent); }
+a:hover { color: var(--accent-dark); }
+a:focus-visible, .btn:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--highlight);
+  outline-offset: 2px;
+}
+
+/* ---------- โครงหน้า ---------- */
+header.hero {
+  background: var(--accent);
+  color: #fff;
+  padding: 2.5rem 1rem;
+}
+
+main, .hero-inner, footer .footer-inner {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+section {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1.5rem 1.75rem;
+  margin: 1.5rem 0;
+}
+
+h1, h2 { line-height: 1.3; margin-top: 0; }
+h1 { font-size: 2rem; margin-bottom: .25rem; }
+h2 {
+  font-size: 1.4rem;
+  color: var(--accent-dark);
+  border-bottom: 3px solid var(--highlight);
+  display: inline-block;
+  padding-bottom: .15rem;
+}
+
+/* ---------- ตาราง profile (ใช้ table จัด layout) ---------- */
+table.profile { border-collapse: collapse; width: 100%; }
+table.profile td { vertical-align: middle; }
+
+/* Challenge: ทำให้รูปกับ text ห่างกัน -> ใส่ padding-right ที่ cell ของรูป */
+table.profile td.photo {
+  width: 1%;
+  padding-right: 2rem;
+}
+
+.avatar {
+  display: block;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;          /* รูปวงกลม */
+  object-fit: cover;           /* ไม่ให้รูปเบี้ยว */
+  border: 5px solid var(--highlight);
+  background: #cfe3e5;
+}
+
+table.profile th {
+  text-align: left;
+  font-weight: 600;
+  color: rgba(255,255,255,.75);
+  padding: .15rem 1rem .15rem 0;
+  white-space: nowrap;
+}
+table.profile td.info-value { padding: .15rem 0; }
+
+/* ---------- ตาราง skill ---------- */
+table.skills { width: 100%; border-collapse: collapse; }
+table.skills th, table.skills td {
+  padding: .6rem .75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+table.skills thead th { background: #e8f1f2; color: var(--accent-dark); }
+table.skills tbody tr:hover { background: #f3f8f8; }
+
+progress {
+  width: 100%;
+  height: 12px;
+  accent-color: var(--accent);
+}
+
+.table-wrap { overflow-x: auto; }
+
+/* ---------- รายการ ---------- */
+ul.foods { padding-left: 1.25rem; }
+ul.foods li::marker { color: var(--highlight); }
+
+.experience-item + .experience-item { margin-top: 1rem; }
+.experience-item h3 { margin: 0; font-size: 1.1rem; }
+.experience-item .period { color: var(--muted); font-size: .95rem; }
+
+/* ---------- ปุ่ม ---------- */
+.btn {
+  display: inline-block;
+  background: var(--highlight);
+  color: var(--ink);
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  padding: .6rem 1.4rem;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background .15s;
+}
+.btn:hover { background: #e19f1c; color: var(--ink); }
+
+/* ---------- ฟอร์ม ---------- */
+form label { display: block; font-weight: 600; margin: 1rem 0 .25rem; }
+form input, form textarea {
+  width: 100%;
+  font: inherit;
+  padding: .6rem .75rem;
+  border: 1px solid #b7c4cf;
+  border-radius: 6px;
+  background: #fff;
+}
+form textarea { min-height: 140px; resize: vertical; }
+form .btn { margin-top: 1.25rem; }
+
+/* ---------- footer ---------- */
+footer {
+  background: var(--ink);
+  color: #d5dde4;
+  padding: 1.5rem 0;
+  margin-top: 2rem;
+  text-align: center;
+}
+footer a { color: var(--highlight); margin: 0 .75rem; }
+
+/* ---------- มือถือ ---------- */
+@media (max-width: 600px) {
+  table.profile, table.profile tbody, table.profile tr, table.profile td, table.profile th {
+    display: block;
+  }
+  table.profile td.photo { padding: 0 0 1rem; }
+  table.profile th { padding-top: .5rem; }
+  section { padding: 1.25rem 1rem; }
+}
